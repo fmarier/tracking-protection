@@ -43,7 +43,7 @@ JSON.parse(String(data), function(k, v) {
     previousValue = undefined;
   } else if (!isNaN(k)) {
     if (!addToList) {
-      console.log(v);
+      console.log("Ignoring " + v);
       return;
     }
     if (undefined != previousKey && k <= previousKey) {
@@ -68,10 +68,11 @@ for (var [key, value] of mapObjects) {
     } else {
       keyValues = key1;
     }
+    console.log("Tracker: " + key1);
     addon.addTracker(key1);
   }
   addon.addFirstPartyHosts(key, keyValues);
-  console.log(key + " = " + keyValues);
+  console.log("1p host " + key + " = " + keyValues);
 }
 
 var serializedObject = addon.serialize();
