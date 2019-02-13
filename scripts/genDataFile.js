@@ -15,7 +15,7 @@ var previousKey = undefined;
 var previousValue = undefined;
 var addToList = true;
 JSON.parse(String(data), function(k, v) {
-  // We shouldn't add all section after Advertising, which is Content
+  // We add all sections other than "Content"
   if (k == 'Advertising') {
     addToList = false;
     //console.log(k);
